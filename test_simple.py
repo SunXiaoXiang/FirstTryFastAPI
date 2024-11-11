@@ -18,3 +18,9 @@ def test_HelloWorld():
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Hello World"}
+
+def test_read_item():
+    item_id = 21
+    response = client.get(f"/items/{item_id}")
+    assert response.status_code == 200
+    assert response.json() == {"item_id": item_id}
