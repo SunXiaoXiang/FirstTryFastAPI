@@ -1,6 +1,6 @@
 import sys
 from fastapi.testclient import TestClient
-from simple import app
+from simple import app, ModelName
 
 def test_sys_version(capsys):
     # 调用 print(sys.version)
@@ -24,3 +24,21 @@ def test_read_item():
     response = client.get(f"/items/{item_id}")
     assert response.status_code == 200
     assert response.json() == {"item_id": item_id}
+
+def test_get_model_alexnet():
+    model_name = ModelName.alexnet
+    response = client.get(f"/models/{model_name}")
+    assert response.status_code == 200
+    assert response.json() == {"model_name": model_name, "message": "Deep Learning FTW!"}
+
+def test_get_model_lenet():
+    model_name = ModelName.lenet
+    response = client.get(f"/models/{model_name}")
+    assert response.status_code == 200
+    assert response.json() == {"model_name": model_name, "message": "LeCNN all the images"}
+
+def test_get_model_resnet():
+    model_name = ModelName.resnet
+    response = client.get(f"/models/{model_name}")
+    assert response.status_code == 200
+    assert response.json() == {"model_name": model_name, "message": "Have some residuals"}
