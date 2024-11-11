@@ -42,3 +42,9 @@ def test_get_model_resnet():
     response = client.get(f"/models/{model_name}")
     assert response.status_code == 200
     assert response.json() == {"model_name": model_name, "message": "Have some residuals"}
+
+def test_read_file():
+    file_path = "some/file/path.txt"
+    response = client.get(f"/files/{file_path}")
+    assert response.status_code == 200
+    assert response.json() == {"file_path": file_path}
