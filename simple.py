@@ -36,3 +36,8 @@ async def read_file(file_path: str):
 @app.get("/items/")
 async def read_item_db(skip: int = 0, limit: int = 10):
     return fake_items_db[skip : skip + limit]
+
+@app.get("/items/{item_id}")
+async def read_user_item(item_id: str, needy: str):
+    item = {"item_id": item_id, "needy": needy}
+    return item

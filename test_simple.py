@@ -68,3 +68,16 @@ def test_read_item_skip_1_limit_1():
     response = client.get("/items/?skip=1&limit=1")
     assert response.status_code == 200
     assert response.json() == [{"item_name": "Bar"}]
+
+def test_read_user_item():
+    item_id = "4"
+    needy = "bar"
+    response = client.get(f"/items/{item_id}?needy={needy}")
+    assert response.status_code == 200
+    #assert response.json() == {"item_id": item_id, "needy": needy}
+
+# 测试缺少 needy 参数的情况
+#def test_read_user_item_missing_needy():
+#    item_id = "foo"
+#    response = client.get(f"/items/{item_id}")
+#    assert response.status_code == 422  # 422 Unprocessable Entity
