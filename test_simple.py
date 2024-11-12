@@ -48,3 +48,23 @@ def test_read_file():
     response = client.get(f"/files/{file_path}")
     assert response.status_code == 200
     assert response.json() == {"file_path": file_path}
+
+def test_read_item_default():
+    response = client.get("/items/")
+    assert response.status_code == 200
+    assert response.json() == [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+
+def test_read_item_skip_1():
+    response = client.get("/items/?skip=1")
+    assert response.status_code == 200
+    assert response.json() == [{"item_name": "Bar"}, {"item_name": "Baz"}]
+
+def test_read_item_limit_1():
+    response = client.get("/items/?limit=1")
+    assert response.status_code == 200
+    assert response.json() == [{"item_name": "Foo"}]
+
+def test_read_item_skip_1_limit_1():
+    response = client.get("/items/?skip=1&limit=1")
+    assert response.status_code == 200
+    assert response.json() == [{"item_name": "Bar"}]

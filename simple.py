@@ -6,6 +6,7 @@ class ModelName(str, Enum):
     resnet = "resnet"
     lenet = "lenet"
 
+fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
 
 print(sys.version)
 
@@ -31,3 +32,7 @@ async def get_model(model_name: ModelName):
 @app.get("/files/{file_path:path}")
 async def read_file(file_path: str):
     return {"file_path": file_path}
+
+@app.get("/items/")
+async def read_item_db(skip: int = 0, limit: int = 10):
+    return fake_items_db[skip : skip + limit]
