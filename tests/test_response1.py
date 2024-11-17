@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from FirstTryFastAPI.response1 import app  # 导入你的FastAPI应用实例
+from FirstTryFastAPI.response1 import app, Item  # 导入你的FastAPI应用实例
 
 # 创建一个测试客户端
 client = TestClient(app)
@@ -34,3 +34,19 @@ def test_create_user_invalid_input(payload, expected_status):
     response = client.post("/user/", json=payload)
     print(f"Response JSON: {response.json()}")
     assert response.status_code == expected_status
+
+
+# 使用parametrize来测试items的异常场景
+@pytest.mark.parametrize("item_id, expected_status, expected_detail", [
+    ("nonexistent", 404, {"detail": "Item not found"}),  # 测试不存在的项目
+    ("foo", 200, {"name": "Foo", "price": 50.2}),  # 测试最小数据的项目
+    ("bar", 200, {"name": "Bar", "description": "The bartenders", "price": 62.0, "tax": 20.2}),  # 测试完整数据的项目
+])
+def test_read_item(item_id, expected_status, expected_detail):
+    response = client.get(f"/items/{item_id}")
+    print("Get item response:", response.json())
+    assert response.status_code == expected_status
+    if expected_status == 200:
+        assert response.json() == expected_detail
+    else:
+        assert response.json() == expected_detail
