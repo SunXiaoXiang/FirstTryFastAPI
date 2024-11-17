@@ -1,0 +1,20 @@
+[run]
+omit =
+    *response*
+    *helloworld*
+    *simple*
+    *requestBody*
+    *requestBody2*
+    *requestBody3*
+    *requestBody4*
+    *requestBody5*
+    *requestBody6*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if six.PY3:
+    if six.PY2:
