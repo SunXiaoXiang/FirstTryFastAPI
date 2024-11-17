@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from requestBody import app  # 导入你的FastAPI应用实例
+from FirstTryFastAPI.requestBody import app  # 导入你的FastAPI应用实例
 
 # 创建一个测试客户端
 client = TestClient(app)

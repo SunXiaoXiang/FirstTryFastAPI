@@ -1,6 +1,6 @@
 import sys
 from fastapi.testclient import TestClient
-from simple import app, ModelName
+from FirstTryFastAPI.simple import app, ModelName
 
 def test_sys_version(capsys):
     # 调用 print(sys.version)

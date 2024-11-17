@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from response1 import app  # 导入你的FastAPI应用实例
+from FirstTryFastAPI.response1 import app  # 导入你的FastAPI应用实例
 
 # 创建一个测试客户端
 client = TestClient(app)

@@ -1,4 +1,4 @@
-from helloworld import main
+from FirstTryFastAPI.helloworld import main
 
 def test_main(capsys):
     # 调用 main 函数
