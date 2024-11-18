@@ -10,7 +10,8 @@ client = TestClient(app)
         "email": "test@example.com",
         "full_name": "Test User"
     }),
-    ("testuser", "testpassword", "invalid-email", "Test User", 422, None)  # Invalid email case
+    ("existinguser", "testpassword", "test@example.com", "Test User", 200, None),  # 用户名已存在
+    ("testuser", "testpassword", "invalid-email", "Test User", 422, None)  # 无效的电子邮件
 ])
 def test_create_user(username, password, email, full_name, expected_status, expected_response):
     response = client.post(
