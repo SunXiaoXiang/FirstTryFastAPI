@@ -1,0 +1,6 @@
+[tool.ruff]
+line-length = 88  # 设置行长度
+
+[tool.ruff.lint]
+ignore = ["E501"]  # 忽略特定的规则
+select = ["E", "F", "W"]  # 选择要检查的规则

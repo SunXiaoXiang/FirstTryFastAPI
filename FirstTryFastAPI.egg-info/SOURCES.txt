@@ -1,5 +1,6 @@
 LICENSE
 README.md
+pyproject.toml
 setup.py
 FirstTryFastAPI/__init__.py
 FirstTryFastAPI/helloworld.py
