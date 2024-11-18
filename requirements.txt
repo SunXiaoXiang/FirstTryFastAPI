@@ -36,6 +36,7 @@ editor==1.6.5
 et-xmlfile==1.1.0
 exceptiongroup==1.2.0
 executing==2.0.1
+fastapi
 face==22.0.0
 faiss-cpu==1.7.4
 filelock==3.9.0
