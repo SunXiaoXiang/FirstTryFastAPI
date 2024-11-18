@@ -11,6 +11,7 @@ FirstTryFastAPI/requestBody4.py
 FirstTryFastAPI/requestBody5.py
 FirstTryFastAPI/requestBody6.py
 FirstTryFastAPI/response1.py
+FirstTryFastAPI/response2.py
 FirstTryFastAPI/simple.py
 FirstTryFastAPI.egg-info/PKG-INFO
 FirstTryFastAPI.egg-info/SOURCES.txt
@@ -26,4 +27,5 @@ tests/test_requestBody4.py
 tests/test_requestBody5.py
 tests/test_requestBody6.py
 tests/test_response1.py
+tests/test_response2.py
 tests/test_simple.py
